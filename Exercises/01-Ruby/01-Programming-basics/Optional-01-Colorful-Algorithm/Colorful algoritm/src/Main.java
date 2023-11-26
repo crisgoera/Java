@@ -14,6 +14,7 @@ public class Main {
         System.out.print(state);
     }
 
+//    Retrieve 3 digit number from user.
     public static char[] inputNumber() {
         System.out.println("Introduce you number: \n");
         Scanner sc = new Scanner(System.in);
@@ -22,6 +23,7 @@ public class Main {
         return digitArray;
     }
 
+//    Generate arrayList with the necessary numbers to perform the calculation.
     public static ArrayList<Integer> separateDigits(char[] input) {
         ArrayList<Integer> resultArray = new ArrayList<Integer>();
 
@@ -34,10 +36,11 @@ public class Main {
         return resultArray;
     }
 
-    public static int count(ArrayList<Integer> array, int entry) {
+//    Count the amount of times a digit appears on the array (excludes self)
+    public static int count(ArrayList<Integer> array, int digit) {
         int count=0;
         for (int i=0; i<array.size(); i++) {
-            if (array.get(i)==entry) {
+            if (array.get(i)==digit) {
                 count++;
             }
         }

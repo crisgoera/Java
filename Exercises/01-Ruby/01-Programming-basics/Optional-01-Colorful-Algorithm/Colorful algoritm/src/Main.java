@@ -2,6 +2,16 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        ArrayList<Integer> array = separateDigits(inputNumber());
+        boolean state = true;
+        for (int i=0; i<array.size(); i++) {
+            int count = count(array, array.get(i));
+            if (count>0) {
+                state = false;
+                break;
+            }
+        }
+        System.out.print(state);
     }
 
     public static char[] inputNumber() {
@@ -24,10 +34,13 @@ public class Main {
         return resultArray;
     }
 
-    public static boolean colorful(ArrayList<Integer> input) {
-        for (int i=0; i<input.size(); i++) {
-            if (input.get(i)==)
+    public static int count(ArrayList<Integer> array, int entry) {
+        int count=0;
+        for (int i=0; i<array.size(); i++) {
+            if (array.get(i)==entry) {
+                count++;
+            }
         }
+        return count-1;
     }
-
 }

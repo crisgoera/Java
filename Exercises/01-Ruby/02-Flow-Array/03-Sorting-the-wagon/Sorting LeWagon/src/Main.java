@@ -33,8 +33,7 @@ public class Main {
 //    Prints names in array.
     public static void printNames(ArrayList<String> nameList) {
         for (int i=0; i<nameList.size(); i++) {
-            String entry = nameList.get(i);
-            System.out.println(entry);
+            System.out.println(nameList.get(i));
         }
     }
 }

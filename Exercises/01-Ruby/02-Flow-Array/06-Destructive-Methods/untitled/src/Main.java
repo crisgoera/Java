@@ -2,10 +2,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(generateHorseLineUp());
         printLineUp();
     }
 
-//    Seed
+//    Seed of the initial array.
     public static ArrayList<String> generateHorseLineUp(){
         String[] lineUp = {"Abricot du Laudot", "Black Caviar", "Brigadier Gerard"};
         ArrayList<String> horseList = new ArrayList<>();
@@ -22,13 +23,13 @@ public class Main {
         return lineUp;
     }
 
-//    Generates the required String.
+//    Generates the required String from an array entry and index.
     public static String modifyEntry(int index, String entry) {
         String modifiedEntry = String.format("%d- %s! \n", index+1, entry);
         return modifiedEntry;
     }
 
-//    Execution.
+//    Execution of the program.
     public static void printLineUp() {
         ArrayList<String> lineUp = reverseLineup(generateHorseLineUp());
         for (int i=0; i<lineUp.size();i++){

@@ -28,6 +28,7 @@ public class Main {
         return modifiedEntry;
     }
 
+//    Execution.
     public static void printLineUp() {
         ArrayList<String> lineUp = reverseLineup(generateHorseLineUp());
         for (int i=0; i<lineUp.size();i++){

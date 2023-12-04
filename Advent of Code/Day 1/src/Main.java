@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 import org.jsoup.*;
 import org.jsoup.nodes.*;
@@ -17,8 +16,7 @@ public class Main {
         System.out.print(totalSum);
     }
 
-//    Scrape html file. "https://adventofcode.com/2023/day/1/input"
-
+//  Scrape html file. "https://adventofcode.com/2023/day/1/input"
     public static ArrayList<String> scraper() throws IOException {
         ArrayList<String> resultList = new ArrayList<String >();
 //        Loads html file
@@ -38,7 +36,7 @@ public class Main {
         return resultList;
     }
 
-//    Extract all calibration digits from a string.
+//  Extract all calibration digits from a string.
     public static int calibrationValue(String string){
 //        Separates string into an array of characters.
         char[] charArray = string.toCharArray();

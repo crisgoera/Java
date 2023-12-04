@@ -10,7 +10,7 @@ public class Main {
         int totalSum = 0;
 
         for (int i=0;i<inputList.size();i++){
-            totalSum = totalSum + extractNumValue(inputList.get(i));
+            totalSum = totalSum + calibrationValue(inputList.get(i));
         }
 
         System.out.println(totalSum);
@@ -38,7 +38,7 @@ public class Main {
     }
 
 //    Extract numeric value from a string.
-    public static int extractNumValue(String string){
+    public static int calibrationValue(String string){
 //        Separates string into an array of characters.
         char[] charArray = string.toCharArray();
 

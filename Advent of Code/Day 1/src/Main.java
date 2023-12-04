@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 import org.jsoup.*;
 import org.jsoup.nodes.*;
@@ -13,7 +14,7 @@ public class Main {
             totalSum = totalSum + calibrationValue(inputList.get(i));
         }
 
-        System.out.println(totalSum);
+        System.out.print(totalSum);
     }
 
 //    Scrape html file. "https://adventofcode.com/2023/day/1/input"
@@ -37,20 +38,23 @@ public class Main {
         return resultList;
     }
 
-//    Extract numeric value from a string.
+//    Extract all calibration digits from a string.
     public static int calibrationValue(String string){
 //        Separates string into an array of characters.
         char[] charArray = string.toCharArray();
-
-        int sum = 0;
+        ArrayList<String> digits = new ArrayList<String>();
 
         for (int i=0; i< charArray.length; i++){
             int numValue = Character.getNumericValue(charArray[i]); //If char is a number it will return value (0..9)
             if (numValue <= 9){
-                sum = sum + numValue;
+                digits.add(Character.toString(charArray[i]));
             }
         }
+        return filterDigits(digits);
+    }
 
-        return sum;
+//  Filters the calibration digits to get the required 2 digit calibration number.
+    public static int filterDigits(ArrayList<String> calDigits){
+        return Integer.valueOf(calDigits.get(0) + calDigits.get(calDigits.size()-1));
     }
 }

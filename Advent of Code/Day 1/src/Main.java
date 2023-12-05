@@ -26,13 +26,11 @@ public class Main {
         Document doc = Jsoup.parse(file, "UTF-8");
 
 //        Extracts text from body.
-        String htmlBody = doc.body().text();;
+        String htmlBody = doc.body().text();
 
 //        Splits text into words and returns them as an ArrayList.
         String[] inputArray = htmlBody.split(" ");
-        for (int i=0; i < inputArray.length; i++) {
-            resultList.add(inputArray[i]);
-        }
+        resultList.addAll(Arrays.asList(inputArray));
         return resultList;
     }
 
@@ -48,11 +46,6 @@ public class Main {
                 digits.add(Character.toString(charArray[i]));
             }
         }
-        return filterDigits(digits);
-    }
-
-//  Filters the calibration digits to get the required 2 digit calibration number.
-    public static int filterDigits(ArrayList<String> calDigits){
-        return Integer.valueOf(calDigits.get(0) + calDigits.get(calDigits.size()-1));
+        return Integer.parseInt(digits.get(0) + digits.get(digits.size()-1));
     }
 }

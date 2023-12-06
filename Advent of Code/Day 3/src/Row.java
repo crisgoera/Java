@@ -1,7 +1,11 @@
 public class Row {
-    String chars;
+    String row;
 
     public void generate(String data){
-        chars = data;
+        row = data;
+    }
+
+    public char[] getCharArray(){
+        return row.toCharArray();
     }
 }

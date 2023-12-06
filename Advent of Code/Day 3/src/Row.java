@@ -5,6 +5,9 @@ public class Row {
         row = data;
     }
 
+    public int symbolIndex() {
+
+    }
     public char[] getCharArray(){
         return row.toCharArray();
     }

@@ -5,7 +5,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        printParsedData();
+        System.out.println(Integer.valueOf('.'));
+        int[] symbolPool = {0,1,2,3,4,5,6,7,8,9, Integer.valueOf('.')};
     }
 
 //    Loads and parses input puzzle from html file. Returns ArrayList containing Object Row with the line data.

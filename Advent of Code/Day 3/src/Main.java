@@ -6,9 +6,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         ArrayList<Row> parsedData = parser();
-        Row charArray = parsedData.get(1);
+        Row charArray = parsedData.get(0);
         System.out.print(charArray.rowData);
         System.out.print(charArray.getIndexes());
+
+        System.out.print(charArray.getValue(4));
     }
 
 //    Loads and parses input puzzle from html file. Returns ArrayList containing Object Row with the line data.
@@ -27,6 +29,19 @@ public class Main {
         return ret;
     }
 
+    public static int numValues() throws IOException {
+        ArrayList<Row> rowList = parser();
+        int numValue = 0;
+
+        for (int i=0; i<rowList.size(); i++){
+            ArrayList<Integer> rowIndexes = rowList.get(i).getIndexes();
+
+        }
+
+        return numValue;
+    }
+
+//    Prints parsed input for test purposes.
     private static void printParsedData() throws IOException {
         for (Row entry : parser()){
             String data = entry.rowData;

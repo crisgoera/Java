@@ -5,13 +5,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        ArrayList<Row> parsedData = parser();
-//        Row charArray = parsedData.get(0);
-//        System.out.print(charArray.rowData);
-//        System.out.print(charArray.getIndexes());
-//
-//        System.out.print(charArray.getValue(4));
-
         System.out.print(totalSum());
     }
 

@@ -8,16 +8,22 @@ public class Row {
     }
 
     public boolean checkSymbol(char chr){
-        
+        String symbolPool = "123456789.";
+        String character = Character.toString(chr);
+
+        return !symbolPool.contains(character);
     }
 
     public ArrayList<Integer> getIndexes(){
         ArrayList<Integer> ret = new ArrayList<Integer>();
         char[] charArray = rowData.toCharArray();
+        int index = 0;
+
         for (char i : charArray){
             if (checkSymbol(i)) {
-                ret.add(rowData.indexOf(i));
+                ret.add(index);
             }
+            index++;
         }
 
         return ret;

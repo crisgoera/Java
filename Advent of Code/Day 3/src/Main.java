@@ -5,10 +5,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        ArrayList<Row> parsedData = parser();
-        Row charArray = parsedData.get(1);
-        System.out.print(charArray.rowData);
-        System.out.print(charArray.getIndexes());
+//        ArrayList<Row> parsedData = parser();
+//        Row charArray = parsedData.get(0);
+//        System.out.print(charArray.rowData);
+//        System.out.print(charArray.getIndexes());
+//
+//        System.out.print(charArray.getValue(4));
+
+        System.out.print(totalSum());
     }
 
 //    Loads and parses input puzzle from html file. Returns ArrayList containing Object Row with the line data.
@@ -27,6 +31,22 @@ public class Main {
         return ret;
     }
 
+    public static int totalSum() throws IOException {
+        ArrayList<Row> rowList = parser();
+        int numValue = 0;
+
+        for (int i=0; i<rowList.size(); i++){
+            ArrayList<Integer> rowIndexes = rowList.get(i).getIndexes();
+            for (int index : rowIndexes){
+                numValue = numValue + rowList.get(i-1).getValue(index) + rowList.get(i).getValue(index)
+                    + rowList.get(i+1).getValue(index);
+            }
+        }
+
+        return numValue;
+    }
+
+//    Prints parsed input for test purposes.
     private static void printParsedData() throws IOException {
         for (Row entry : parser()){
             String data = entry.rowData;

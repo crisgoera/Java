@@ -10,7 +10,7 @@ public class Row {
 
 //    Checks if a character is a special character.
     public boolean checkSymbol(char chr){
-        String symbolPool = "123456789.";
+        String symbolPool = "0123456789.";
         String character = Character.toString(chr);
 
         return !symbolPool.contains(character);
@@ -30,5 +30,21 @@ public class Row {
         }
 
         return ret;
+    }
+
+//    Gets the sum of the numerical values from a row at a given an index.
+    public int getValue(int index) {
+        String numberPool= "0123456789";
+        int sum = 0;
+        char[] charArray = rowData.toCharArray();
+        
+        for (int i=index-1; i<=index+1; i++){
+            String character = Character.toString(charArray[i]);
+            if (numberPool.contains(character)){
+                sum = sum + Integer.parseInt(character);
+            }
+        }
+
+        return sum;
     }
 }

@@ -37,7 +37,7 @@ public class Row {
         String numberPool= "0123456789";
         int sum = 0;
         char[] charArray = rowData.toCharArray();
-        
+
         for (int i=index-1; i<=index+1; i++){
             String character = Character.toString(charArray[i]);
             if (numberPool.contains(character)){

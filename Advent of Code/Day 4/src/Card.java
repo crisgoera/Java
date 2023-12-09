@@ -26,4 +26,14 @@ public class Card {
         winningNumbers = winningArray;
         cardNumbers = cardArray;
     }
+
+    public int points(){
+        int matches = 0;
+        for (int winningNumber : winningNumbers){
+            for (int cardNumber : cardNumbers){
+                if (winningNumber == cardNumber) {matches++;}
+            }
+        }
+        return (int)Math.pow(2, matches-1);
+    }
 }

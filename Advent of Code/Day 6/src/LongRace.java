@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-public class Race {
-    int time;
-    int distance;
+public class LongRace {
+    long time;
+    long distance;
 
 //    Generates an instance of Race object.
-    public void generate(int timeEntry, int distanceEntry){
+    public void generate(long timeEntry, long distanceEntry){
         time = timeEntry;
         distance = distanceEntry;
     }
@@ -16,8 +16,8 @@ public class Race {
 
         for(int holdButtonTime = 0; holdButtonTime<distance; holdButtonTime++){
             // x = x0 + vt
-            int initialSpeed = holdButtonTime;
-            int remainingTime = time - holdButtonTime;
+            long initialSpeed = holdButtonTime;
+            long remainingTime = time - holdButtonTime;
             if (initialSpeed * remainingTime > distance){
                 winningCombinations++;
             }

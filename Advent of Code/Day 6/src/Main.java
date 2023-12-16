@@ -1,20 +1,17 @@
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 import org.jsoup.*;
 import org.jsoup.nodes.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        for (String entry : parser()) {
-            System.out.print(entry + "\n");
-        }
         System.out.print(parseTimeData() + "\n");
         System.out.print(parseDistanceData() + "\n");
-        Race firstEntry = new Race();
-        firstEntry.generate(7,9);
-        System.out.print(firstEntry.time);
-        System.out.print(firstEntry.distance);
+
+        Race firstEntry = getRaceArray(parseTimeData(), parseDistanceData()).get(0);
+        System.out.println(firstEntry.time);
+        System.out.println(firstEntry.distance);
+
     }
 
 
@@ -48,9 +45,10 @@ public class Main {
 
     public static ArrayList<Race> getRaceArray(ArrayList<Integer> timeData, ArrayList<Integer> distanceData) {
         ArrayList<Race> raceList = new ArrayList<>();
-        Race newRace = new Race();
+
 
         for (int i = 0; i< timeData.size(); i++) {
+            Race newRace = new Race();
             newRace.generate(timeData.get(i), distanceData.get(i));
             raceList.add(newRace);
         }

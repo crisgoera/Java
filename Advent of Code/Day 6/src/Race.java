@@ -15,7 +15,7 @@ public class Race {
         int winningCombinations = 0;
 
         for(int holdButtonTime = 0; holdButtonTime<distance; holdButtonTime++){
-            // x = x0 + vt
+            // x = x0 + vt => distance = Tp * (T0-Tp)
             int initialSpeed = holdButtonTime;
             int remainingTime = time - holdButtonTime;
             if (initialSpeed * remainingTime > distance){

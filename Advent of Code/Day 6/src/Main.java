@@ -18,7 +18,7 @@ public class Main {
 
         LongRace longRace = new LongRace();
         longRace.generate(35696887,213116810861248L);
-        System.out.print(longRace.getNumberWinningCombinations() + "\n");
+        System.out.print(longRace.getNumberWinningCombinations());
 
         System.out.print("Finished!");
 

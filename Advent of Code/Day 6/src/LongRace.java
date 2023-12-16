@@ -11,18 +11,20 @@ public class LongRace {
     }
 
 //    Gets the amount of possible combinations that result in a win for a Race instance.
-    public int getNumberWinningCombinations(){
-        int winningCombinations = 0;
+    public long getNumberWinningCombinations(){
+        long[] extremeValues = quadratic();
+        return extremeValues[0]- extremeValues[1];
+    }
 
-        for(int holdButtonTime = 0; holdButtonTime<distance; holdButtonTime++){
-            // x = x0 + vt
-            long initialSpeed = holdButtonTime;
-            long remainingTime = time - holdButtonTime;
-            if (initialSpeed * remainingTime > distance){
-                winningCombinations++;
-            }
-        }
+//    Gets the extreme values where hold button time = distance.
+    public long[] quadratic(){
+        long[] maxMin = new long[2];
+        long t0sq = (long) Math.pow(time,2);
+        long firstSolution = (long) (time+Math.sqrt(t0sq-4*distance))/2;
+        long secondSolution = (long) (time-Math.sqrt(t0sq-4*distance))/2;
 
-        return winningCombinations;
+        maxMin[0] = firstSolution;
+        maxMin[1] = secondSolution;
+        return maxMin;
     }
 }

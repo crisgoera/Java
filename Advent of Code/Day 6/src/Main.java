@@ -14,7 +14,14 @@ public class Main {
             multiplier = multiplier * entry.getNumberWinningCombinations();
         }
 
-        System.out.print(multiplier);
+        System.out.print(multiplier + "\n");
+
+        LongRace longRace = new LongRace();
+        longRace.generate(35696887,213116810861248L);
+        System.out.print(longRace.getNumberWinningCombinations() + "\n");
+
+        System.out.print("Finished!");
+
     }
 
 //    Parses input file into text.

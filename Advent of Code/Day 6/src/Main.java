@@ -5,17 +5,14 @@ import org.jsoup.nodes.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.print(parseTimeData() + "\n");
-        System.out.print(parseDistanceData() + "\n");
-
-
+//        Part 1.
         int multiplier = 1;
         for (Race entry : getRaceArray(parseTimeData(), parseDistanceData())){
             multiplier = multiplier * entry.getNumberWinningCombinations();
         }
-
         System.out.print(multiplier + "\n");
 
+//        Part 2.
         LongRace longRace = new LongRace();
         longRace.generate(35696887,213116810861248L);
         System.out.print(longRace.getNumberWinningCombinations());

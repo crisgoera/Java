@@ -19,7 +19,7 @@ public class Main {
 
 //    Parses input file into text.
     public static String[] parser() throws IOException {
-        File file = new File("resources/testInput.html");
+        File file = new File("resources/input");
         Document doc = Jsoup.parse((file));
         return doc.body().text().split(":");
     }

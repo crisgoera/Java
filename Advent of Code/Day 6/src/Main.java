@@ -8,19 +8,23 @@ public class Main {
         System.out.print(parseTimeData() + "\n");
         System.out.print(parseDistanceData() + "\n");
 
-        Race firstEntry = getRaceArray(parseTimeData(), parseDistanceData()).get(0);
-        System.out.println(firstEntry.time);
-        System.out.println(firstEntry.distance);
 
+        int multiplier = 1;
+        for (Race entry : getRaceArray(parseTimeData(), parseDistanceData())){
+            multiplier = multiplier * entry.getNumberWinningCombinations();
+        }
+
+        System.out.print(multiplier);
     }
 
-
+//    Parses input file into text.
     public static String[] parser() throws IOException {
         File file = new File("resources/testInput.html");
         Document doc = Jsoup.parse((file));
         return doc.body().text().split(":");
     }
 
+//    Formats time data from parsed file.
     public static ArrayList<Integer> parseTimeData () throws IOException {
         String[] timeString = parser()[1].split("Distance")[0].trim().split(" ");
         ArrayList<Integer> parsedTime = new ArrayList<>();
@@ -32,6 +36,7 @@ public class Main {
         return parsedTime;
     }
 
+//    Formats distance data from parsed file.
     public static ArrayList<Integer> parseDistanceData () throws IOException {
         String[] timeString = parser()[2].trim().split(" ");
         ArrayList<Integer> parsedDistance = new ArrayList<>();
@@ -43,6 +48,7 @@ public class Main {
         return parsedDistance;
     }
 
+//    Obtains the list of Race objects from the parsed file.
     public static ArrayList<Race> getRaceArray(ArrayList<Integer> timeData, ArrayList<Integer> distanceData) {
         ArrayList<Race> raceList = new ArrayList<>();
 
@@ -56,12 +62,13 @@ public class Main {
         return raceList;
     }
 
+    //    Prints the list of Race objects obtained from the parsed text.
     public static void printRaceArray() throws IOException {
         ArrayList<Race> raceList = getRaceArray(parseTimeData(), parseDistanceData());
 
         for (Race race : raceList){
-            System.out.print(race.time);
-            System.out.print(race.distance + "\n");
+            System.out.print("Time " + race.time + "\n");
+            System.out.print("Distance " + race.distance + "\n");
         }
     }
 }

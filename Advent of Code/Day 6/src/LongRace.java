@@ -12,7 +12,7 @@ public class LongRace {
 
 //  Gets the extreme values where hold button time = distance.
 //  Tp*(T0-Tp) = distance => -Tp^2+T0*Tp - distance = 0;
-    public long[] quadratic(){
+    public long[] getRoots(){
         long[] roots = new long[2];
         long t0sq = (long) Math.pow(time,2);
         long firstSolution = (long) (time+Math.sqrt(t0sq-4*distance))/2;
@@ -25,7 +25,7 @@ public class LongRace {
 
 //    Gets the amount of possible combinations that result in a win for a Race instance.
     public long getNumberWinningCombinations(){
-        long[] extremeValues = quadratic();
+        long[] extremeValues = getRoots();
         return extremeValues[0]- extremeValues[1];
     }
 }
